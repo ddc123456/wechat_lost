@@ -1,0 +1,35 @@
+<!--pages/userMsg/mySend/mySend.wxml-->
+ <!--内容-->
+ <view>
+   <view class='page'>
+     <text style="font-family:arial;font-size:40px;text-align:center;">联系客服</text>
+   </view>
+
+<view class='function' catchtap='' >
+  <text style="margin-top:100px">
+    客服1: tel：18855525326 ； qq: 123445
+
+    客服2: tel：18853427568 ； qq: 123445
+    
+    客服3: tel：15056436642 ； qq: 123445
+  </text>
+  <!-- 导航栏-->
+<view class='tabs'>
+ <w-tabs bind:onChange="handleChange" currentIndex="3" options="{{ tabs1 }}"  line="{{ false }}"/>
+</view>
+</view>
+
+
+
+
+
+      
+      <!-- 解决底部导航栏遮挡部分内容的问题-->
+      <view class='save-bottom'></view>
+   <!-- 导航栏-->
+<view class='tabs'>
+ <w-tabs bind:onChange="handleChange" currentIndex="3" options="{{ tabs1 }}"  line="{{ false }}"/>
+</view> 
+   </view>
+     
+
