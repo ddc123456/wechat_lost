@@ -1,0 +1,100 @@
+<!--pages/send/send.wxml-->
+<view class='main-background'>
+    <form bindreset="lostandfoundMsgFormSubmit">
+    
+        <!-- <radio-group class="radio-group" bindchange="radioChange">
+           <label class="radio" wx:for="{{items}}">
+              <radio value="{{item.name}}" checked="{{item.checked}}"/>{{item.value}}
+           </label>
+        </radio-group> -->
+    <picker bindchange="bindPickerChange1" value="{{index1}}" range="{{array1}}">
+    <view class="picker1">
+      选择失/拾：{{array1[index1]}}
+    </view>
+  </picker>
+
+
+  <type bindchange="bindTypeChange" value="{{ind}}" range="{{arr}}">
+    <!--
+    <view class="type">
+      <Select prop-array='{{selectArray}}'></Select>
+    </view>-->
+<!--
+    <view class="vant_view_button_select_date">
+      <van-button class="vant_button_select_date" size="large" color="white"  type="default" bind:tap="select_date_action">{{a?a:'选择失/拾日期'}}</van-button>
+    </view>-->
+    <view class="vant_view_button_select_date">
+      <van-button class="vant_button_select_date" size="small" color="hsla(210, 13%, 88%, 0.829) " type="default" bind:tap="select_date_action">{{a?a:'选择失/拾日期'}}</van-button>
+    </view>    
+    <!-- <view class="view_time">
+      <text>{{currentTime}}</text>
+    </view> -->
+    <van-popup
+  show="{{ show }}"
+  position="bottom"
+  custom-style="height: 50%;"
+  bind:close="onClose"
+>
+<van-datetime-picker class="van-datetime-picker"
+  type="date"
+  value="{{ currentDate }}"
+  bind:input="onInput"
+  bind:confirm='van_datetime_picker_confirm'
+  bind:cancel='van_datetime_picker_cancel'
+  min-date="{{ minDate }}"
+  formatter="{{ formatter }}"
+/>
+
+</van-popup>
+<picker bindchange="bindPickerChange3" value="{{index3}}" range="{{array3}}">
+    <view class="picker3">
+      选择失/拾地点：{{array3[index3]}}
+    </view>
+  </picker>  
+<picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+    <view class="picker2">
+      选择物品类别：{{array[index]}}
+    </view>
+  </picker>   
+
+
+  </type>
+        <!-- 留下距离-->
+        <view class='space'></view>
+        <!-- 描述-->
+        <w-cell-group>
+	          <!-- <w-input clear count="200" type="textarea" placeholder="输入"	bindblur='bindTextAreaBlur'/> -->
+            <textarea placeholder="说点什么吧..." bindblur='bindTextAreaBlur' maxlength='200'></textarea>
+        </w-cell-group>
+
+         <!-- 留下距离-->
+        <!-- <view class='space'></view> -->
+      <label>上传图片</label>
+
+      
+      <!-- 图片上传-->
+           <view class="big-logos">
+        <view class='big-logos_img'>
+           <image bindtap="chooseImage" src='/images/wx_app_add.jpg'></image> 
+           <!-- <image bindtap="chooseImage" src='/images/wx_app_add.jpg'></image> 
+          <image bindtap="chooseImage" src='/images/wx_app_add.jpg'></image>    -->
+        </view>
+        <block wx:for="{{images}}" wx:key="{{index}}"> 
+            <view class='logoinfo'>    
+              <image src='{{item}}' catchtap='deleteImg'></image>    
+            </view>
+
+        </block>    
+      </view> 
+       <!-- 图片上传-->
+              <!-- 留下距离-->
+        <view class='space'></view>
+        <view class='submit-btn-view'>
+                 <button style="height:100rpx" formType="reset" class='submit-btn' >发布</button>
+        </view>
+
+    </form>
+</view>
+<view class='tabs'>
+   <w-tabs bind:onChange="handleChange" currentIndex="1" options="{{ tabs1 }}"  line="{{ false }}"/>
+</view>
